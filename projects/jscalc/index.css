@@ -1,0 +1,290 @@
+body {
+	background-color: #080808;
+	font-family: Helvetica;
+	color: white;
+	font-size: 16px;
+}
+
+.numberbutton {
+	height: 64px;
+	width: 64px;
+	border-radius: 50px;
+	border: 0px;
+	background-color: #333333;
+	color: white;
+	font-size: 32px;
+	font-family: Helvetica;
+}
+
+.numberbutton:focus {
+	outline: 0;
+}
+
+.operatorbutton {
+	background-color: #FF9F0B;
+	height: 64px;
+	width: 64px;
+	border-radius: 50px;
+	border: 0px;
+	color: white;
+	font-size: 32px;
+	font-family: Helvetica;
+}
+
+.operatorbutton:focus {
+	outline: 0;
+}
+
+#zerobutton {
+	width: 138px;
+	text-align: left;
+}
+
+#zerotext {
+	padding-left: 10px;
+}
+
+.specialbutton {
+	height: 64px;
+	width: 64px;
+	border: 0px;
+	border-radius: 50px;
+	background-color: #A5A5A5;
+	color: #000000;
+	font-family: Helvetica;
+	font-size: 22px;
+}
+
+.numberbutton:active {
+	background-color: #737373;
+}
+
+.operatorbutton:active {
+	background-color: #FFCA8B;
+	color: #FF9700;
+}
+
+.specialbutton:active {
+	background-color: #D9D9D9;
+}
+
+.specialbutton:focus {
+	outline: 0;
+}
+
+
+/* button time */
+
+
+#onebutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: -140px;
+	right: 0;
+	left: -220px;
+}
+#twobutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: -140px;
+	right: 0;
+	left: -80px;
+}
+		#threebutton {
+			margin: auto;
+			position: fixed;
+			top: 0;
+			bottom: -140px;
+			right: 0;
+			left: 80px;
+		}
+		#fourbutton {
+			margin: auto;
+			position: fixed;
+			top: 0;
+			bottom: 0px;
+			right: 0;
+			left: -220px;
+		}
+#fivebutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: -80px;
+}
+
+#sixbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 80px;
+}
+#sevenbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 140px;
+	right: 0;
+	left: -220px;
+
+
+}
+#eightbutton{
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 140px;
+	right: 0;
+	left: -80px;
+}
+
+#ninebutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 140px;
+	right: 0;
+	left: 80px;
+}
+#zerobutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: -280px;
+	right: 0;
+	left: -150px;
+}
+
+
+
+
+#sevenbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 140px;
+	right: 0;
+	left: -220px;
+}
+
+#plusbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: -140px;
+	right: 0;
+	left: 220px;
+}
+
+#xbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 140px;
+	right: 0;
+	left: 220px;
+}
+
+#minusbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 0px;
+	right: 0;
+	left: 220px;
+}
+
+#zerobutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: -280px;
+	right: 0;
+	left: -150px;
+}
+
+#dotbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: -280px;
+	right: 0;
+	left: 80px;
+}
+
+#isbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: -280px;
+	right: 0;
+	left: 220px;
+}
+
+#ACbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 280px;
+	right: 0;
+	left: -220px;
+}
+
+#PLMIbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 280px;
+	right: 0;
+	left: -80px;
+}
+
+#percentbutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 280px;
+	right: 0;
+	left: 80px;
+}
+
+#dividebutton {
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 280px;
+	right: 0;
+	left: 220px;
+}
+
+#spacer {
+	height: 100%;
+	width: 5px;
+	background-color: white;
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+#result {
+	color: white;
+	font-size: 65px;
+	font-weight: lighter;
+	margin: auto;
+	position: fixed;
+	left: 41.5%;
+	top: 15%;
+}
+
+#textResult {
+	direction: ltr;
+}

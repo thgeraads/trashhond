@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>JavaScript Calculator</title>
+      <link rel="stylesheet" href="index.css" type="text/css">
+   </head>
+   <body>
+      <div style="direction:ltr;text-align: right; unicode-bidi:bidi-override;" id="result"></div>
+      <button onclick="add1()" class="numberbutton" id="onebutton">1</button>
+      <button onclick="add2()" class="numberbutton" id="twobutton">2</button>
+      <button onclick="add3()" class="numberbutton" id="threebutton">3</button>
+      <button onclick="add4()" class="numberbutton" id="fourbutton">4</button>
+      <button onclick="add5()" class="numberbutton" id="fivebutton">5</button>
+      <button onclick="add6()" class="numberbutton" id="sixbutton">6</button>
+      <button onclick="add7()" class="numberbutton" id="sevenbutton">7</button>
+      <button onclick="add8()" class="numberbutton" id="eightbutton">8</button>
+      <button onclick="add9()" class="numberbutton" id="ninebutton">9</button>
+      <button class="numberbutton" id="zerobutton" onclick="add0()"><span id="zerotext">0</span></button>
+      <button onclick="adddot()" class="numberbutton" id="dotbutton"><span id="dottext">.</span></button>
+      <button onclick="addDev()" class="operatorbutton" id="dividebutton">÷</button>
+      <button onclick="addX()" class="operatorbutton" id="xbutton">x</button>
+      <button onclick="addPlus()" class="operatorbutton" id="plusbutton">+</button>
+      <button onclick="addMinus()" class="operatorbutton" id="minusbutton">-</button>
+      <button onclick="solve()" class="operatorbutton" id="isbutton">=</button>
+      <button onclick="clearField()" class="specialbutton" id="ACbutton">AC</button>
+      <button onclick='error()' class="specialbutton" id="PLMIbutton">+/-</button>
+      <button onclick="error()" class="specialbutton" id="percentbutton">%</button>
+      <!-- <script src="index.js"></script> -->
+      <!-- <div id="spacer"></div> -->
+      <script>
+         function add1(){
+         let number = document.getElementById("onebutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         
+         }
+         function add2(){
+         let number = document.getElementById("twobutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         
+         }
+         function add3(){
+         let number = document.getElementById("threebutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         
+         }
+         function add4(){
+         let number = document.getElementById("fourbutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         
+         }
+         function add5(){
+         let number = document.getElementById("fivebutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         
+         }
+         function add6(){
+         let number = document.getElementById("sixbutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         
+         }
+         function add7(){
+         let number = document.getElementById("sevenbutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         
+         }
+         function add8(){
+         let number = document.getElementById("eightbutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         
+         }
+         function add9(){
+         let number = document.getElementById("ninebutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         
+         }
+         function add0(){
+         let number = document.getElementById("zerobutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String("0")
+         }
+         function adddot(){
+         let number = document.getElementById("dotbutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(",")
+         
+         }
+         function clearField(){
+         let resultText = document.getElementById("result")
+         resultText.innerHTML = ""
+         }
+         function solve(){
+         let currentResultField = document.getElementById("result")
+         let currentResult = currentResultField.innerHTML
+         let equate = eval(currentResult)
+         currentResultField.innerHTML = equate
+         console.log(equate)
+         
+         }
+         function addPlus(){
+         let number = document.getElementById("plusbutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         }
+         function addMinus(){
+         let number = document.getElementById("minusbutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String(numberx)
+         }
+         function addX(){
+         let number = document.getElementById("xbutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String("*")
+         }
+         function addDev(){
+         let number = document.getElementById("dividebutton")
+         let numberx = number.innerHTML
+         let resultText = document.getElementById("result")
+         resultText.innerHTML += String("/")
+         }
+         function error(){
+         alert("That doesn't work yet!")
+         }
+         
+      </script>
+   </body>
+</html>

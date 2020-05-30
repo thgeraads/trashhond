@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <style>
-          body{
-              background-color: cornflowerblue;
-              color: white;
-              font-family: 'Titillium Web', sans-serif;
-            
-              text-align: center;
-          }
-      </style>
+
+<head>
+    <style>
+        body {
+            background-color: cornflowerblue;
+            color: white;
+            font-family: 'Titillium Web', sans-serif;
+
+
+        }
+
+        h4 {
+            padding-left: 120px;
+        }
+
+        #calcButton {
+            height: 50px;
+            width: 100px;
+            border-radius: 20px;
+            background-color: #44aa44;
+            border: 1px solid #0f550f;
+            color: white;
+            position: fixed;
+            top: 1%;
+            left: 10px;
+        }
+
+        #calcButton:focus {
+            outline: none;
+        }
+
+        #calcButton {
+            opacity: 0.8;
+        }
+        #calcButton{
+            opacity: 1;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
-   
-    <link rel="shortcut icon" type="image/png" href="../images/glitchSeal.png"/>
+
+    <link rel="shortcut icon" type="image/png" href="../images/glitchSeal.png" />
     <meta charset="UTF-8">
     <title>trashhond</title>
-  </head>
-  <body>
-  
-  </body>
+</head>
+
+<body>
+    <button onclick="location.href = 'jscalc/jscalc.html'" id="calcButton">JS Calculator</button>
+    <h4>- Slightly broken JavaScript calculator themed to look like the iOS one.</h4>
+</body>
+
 </html>

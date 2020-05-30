@@ -9,9 +9,55 @@
         body {
             background-color: cornflowerblue;
             color: white;
-            /* font-family: 'Titillium Web', sans-serif; */
+            font-family: 'Titillium Web', sans-serif;
 
             text-align: center;
+        }
+
+        #projectButton {
+            height: 50px;
+            width: 100px;
+            border-radius: 20px;
+            background-color: #44aa44;
+            border: 1px solid #0f550f;
+            color: white;
+            position: fixed;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: -500px;
+            right: 0;
+
+        }
+
+        #githubButton {
+            height: 50px;
+            width: 100px;
+            border-radius: 20px;
+            background-color: #44aa44;
+            border: 1px solid #0f550f;
+            color: white;
+            position: fixed;
+            margin: auto;
+            top: 0;
+            bottom: 0px;
+            left: 450px;
+            right: 0;
+
+        }
+
+        #githubButton:hover,
+        #projectButton:hover {
+            opacity: 0.8;
+        }
+        #githubButton:active,
+        #projectButton:active {
+            opacity: 1;
+        }
+
+        #projectButton:focus,
+        #githubButton:focus {
+            outline: none;
         }
     </style>
     <meta charset="UTF-8">
@@ -21,7 +67,8 @@
 <body>
     <h1>There is nothing to see here!</h1>
     <h2>This is just a place to store small JS things i made.</h2>
-    <button id="projectButton">Projects</button>
+    <button onclick="location.href = 'projects/index.html'" id="projectButton">Projects</button>
+    <button onclick="location.href = 'github/index.html'" id="githubButton">Github</button>
 </body>
 
 </html>

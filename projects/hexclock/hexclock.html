@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: cornflowerblue;
+            color: white;
+            font-family: 'Titillium Web', sans-serif;
+
+            text-align: center;
+        }
+        #timeField{
+            margin-bottom: 15%;
+           
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="../images/glitchSeal.png" />
+    <meta charset="UTF-8">
+    <title>trashhond</title>
+</head>
+
+<body>
+    <script>
+        setInterval(function(){ 
+    time() 
+    console.log("time set")
+}, 50);
+        function time() {
+            var today = new Date();
+            let hours = today.getHours();
+            let minutes = today.getMinutes();
+            let seconds = today.getSeconds();
+
+            if (String(seconds).length == 1) {
+                var seconds0 = "0" + String(seconds)
+            } else {
+                var seconds0 = String(seconds)
+            }
+            if (String(minutes).length == 1) {
+                var minutes0 = "0" + String(minutes)
+            } else {
+                var minutes0 = String(minutes)
+            }
+            let currentTime = "#" + hours + minutes0 + seconds0
+            document.getElementById("cTime").innerHTML = currentTime
+            document.body.style.backgroundColor = String(currentTime)
+        }
+    </script>
+    <button onclick="time()">time</button>
+    <div id="timeField"><h1 id="cTime"></h1></div>
+</body>
+
+</html>

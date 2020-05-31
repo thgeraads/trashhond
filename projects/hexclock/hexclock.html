@@ -8,10 +8,16 @@
             color: white;
             font-family: 'Titillium Web', sans-serif;
 
-            text-align: center;
+            /* text-align: center; */
         }
         #timeField{
-            margin-bottom: 15%;
+            margin: auto;
+            position: fixed;
+            left: 39%;
+            right: 40%;
+            top: 40%;
+            right: 40%;
+            font-size: 69px;
            
         }
     </style>
@@ -44,13 +50,14 @@
             } else {
                 var minutes0 = String(minutes)
             }
+            let currentTimeString = "#" + hours + ":" + minutes0  + ":" + seconds0
             let currentTime = "#" + hours + minutes0 + seconds0
-            document.getElementById("cTime").innerHTML = currentTime
+            document.getElementById("timeField").innerHTML = currentTimeString
             document.body.style.backgroundColor = String(currentTime)
         }
     </script>
-    <button onclick="time()">time</button>
-    <div id="timeField"><h1 id="cTime"></h1></div>
+    
+  <h1 id="timeField"></h1>
 </body>
 
 </html>

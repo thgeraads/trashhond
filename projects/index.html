@@ -10,57 +10,51 @@
 
 
         }
-
-        h4 {
-            padding-left: 120px;
-        }
-        #hexText{
-            padding-top: 15px   ;
-        }
-
-        #calcButton {
+        .button{
             height: 50px;
             width: 100px;
             border-radius: 20px;
             background-color: #44aa44;
             border: 1px solid #0f550f;
             color: white;
+        }
+
+        h4 {
+            padding-left: 120px;
+        }
+
+        #hexText {
+            padding-top: 15px;
+        }
+
+        #calcButton {
+            
             position: fixed;
             top: 1%;
             left: 10px;
         }
 
-        #calcButton:focus {
-            outline: none;
-        }
-
-        #calcButton:hover {
-            opacity: 0.8;
-        }
-        #calcButton:active{
-            opacity: 1;
-        }
-
         #hexButton {
-            height: 50px;
-            width: 100px;
-            border-radius: 20px;
-            background-color: #44aa44;
-            border: 1px solid #0f550f;
-            color: white;
+            
             position: fixed;
             top: 10%;
             left: 10px;
         }
-
-        #hexButton:focus {
+        
+        #backbutton{
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+        }
+        .button:focus {
             outline: none;
         }
 
-        #hexButton:hover {
+        .button:hover {
             opacity: 0.8;
         }
-        #hexButton:active{
+
+        .button:active {
             opacity: 1;
         }
     </style>
@@ -72,10 +66,11 @@
 </head>
 
 <body>
-    <button onclick="location.href = 'jscalc/jscalc.html'" id="calcButton">JS Calculator</button>
+    <button onclick="location.href = 'jscalc/jscalc.html'" id="calcButton" class="button">JS Calculator</button>
     <h4>- Slightly broken JavaScript calculator themed to look like the iOS one.</h4>
-    <button onclick="location.href = 'hexclock/hexclock.html'" id="hexButton">HexClock</button>
+    <button onclick="location.href = 'hexclock/hexclock.html'" id="hexButton" class="button">HexClock</button>
     <h4 id="hexText">- 24-hour clock with a changing background based on the current time.</h4>
+    <button onclick="location.href = '../index.html'" id="backbutton" class="button">Back</button>
 
 </body>
 

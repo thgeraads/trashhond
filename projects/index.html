@@ -14,6 +14,9 @@
         h4 {
             padding-left: 120px;
         }
+        #hexText{
+            padding-top: 15px;
+        }
 
         #calcButton {
             height: 50px;
@@ -37,6 +40,29 @@
         #calcButton:active{
             opacity: 1;
         }
+
+        #hexButton {
+            height: 50px;
+            width: 100px;
+            border-radius: 20px;
+            background-color: #44aa44;
+            border: 1px solid #0f550f;
+            color: white;
+            position: fixed;
+            top: 10%;
+            left: 10px;
+        }
+
+        #hexButton:focus {
+            outline: none;
+        }
+
+        #hexButton:hover {
+            opacity: 0.8;
+        }
+        #hexButton:active{
+            opacity: 1;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
 
@@ -48,6 +74,9 @@
 <body>
     <button onclick="location.href = 'jscalc/jscalc.html'" id="calcButton">JS Calculator</button>
     <h4>- Slightly broken JavaScript calculator themed to look like the iOS one.</h4>
+    <button id="hexButton">HexClock</button>
+    <h4 id="hexText">- 24-hour clock with a changing background based on the current time.</h4>
+
 </body>
 
 </html>

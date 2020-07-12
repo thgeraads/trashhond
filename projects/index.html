@@ -26,6 +26,9 @@
         #hexText {
             padding-top: 15px;
         }
+        #dbText {
+            padding-top: 30px;
+        }
 
         #calcButton {
             
@@ -41,6 +44,13 @@
             left: 10px;
         }
         
+        #dbButton {
+            
+            position: fixed;
+            top: 19.5%;
+            left: 10px;
+        }
+
         #backbutton{
             position: fixed;
             bottom: 10px;
@@ -68,10 +78,35 @@
 <body>
     <button onclick="location.href = 'jscalc/jscalc.html'" id="calcButton" class="button">JS Calculator</button>
     <h4>- Slightly broken JavaScript calculator themed to look like the iOS one.</h4>
+
     <button onclick="location.href = 'hexclock/hexclock.html'" id="hexButton" class="button">HexClock</button>
     <h4 id="hexText">- 24-hour clock with a changing background based on the current time.</h4>
+
+    <button onclick ='location.href = "https://zeehondie-infodbtest.netlify.app" 'id="dbButton" class="button">InfoDBTest</button>
+    <h4 onmouseover="secret()" onmouseout="revert()" id="dbText">- Form / database test. (redirect)</h4>
+
     <button onclick="location.href = '../index.html'" id="backbutton" class="button">Back</button>
 
+
+    <script>
+        hover = false
+        async function secret(){
+            document.getElementById("dbText").innerText = "- Form / database test. ; )"
+            hover = true
+            await new Promise(r => setTimeout(r, 1200));
+            if(hover == true){
+            document.getElementById("dbText").innerText = "- It's really an IP grabber made to look like a form."
+            }
+        }
+
+        function revert(){
+            document.getElementById("dbText").innerText = "- Form / database test. (redirect)"
+            while(hover == true){
+                hover = false
+            }
+
+        }
+    </script>
 </body>
 
 </html>

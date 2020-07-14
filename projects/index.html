@@ -51,6 +51,20 @@
             left: 10px;
         }
 
+        #drawButton{
+            position:fixed;
+            left: 10px;
+            top: 28%;
+        }
+
+        #drawText{
+
+            position:fixed;
+            top: 29.3%;
+            user-select: none;
+            margin: 0px;
+        }
+
         #backbutton{
             position: fixed;
             bottom: 10px;
@@ -84,6 +98,9 @@
 
     <button onclick ='location.href = "https://zeehondie-infodbtest.netlify.app" 'id="dbButton" class="button">InfoDBTest</button>
     <h4 onmouseover="secret()" onmouseout="revert()" id="dbText">- Form / database test. (redirect)</h4>
+
+    <button onclick ='location.href = "draw/index.html" 'id="drawButton" class="button">Draw</button>
+    <h4 id="drawText">- Simple JS paint program.</h4>
 
     <button onclick="location.href = '../index.html'" id="backbutton" class="button">Back</button>
 

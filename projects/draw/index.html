@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html style="user-select: none;" onmousedown="setHold('on')" onmouseup="setHold('off')" onmousemove="coords()"
+   lang="en">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Draw</title>
+   <head>
+      <style>
+         body {
+         background-color: #121212;
+         user-select: none;
+         }
+         h1{
+         font-size: 20px;
+         color: white;
+         font-family: Arial, Helvetica, sans-serif;
+         text-decoration: underline;
+         position: absolute;
+         z-index: 1000;
+         }
+         .vl {
+         height: 67.5px;
+         width: 2px;
+         background-color: #3f3f3f;
+         }
+         #vl1 {
+         position: absolute;
+         left: 75px;
+         top: 3.75px;
+         }
+         #vl2 {
+         position: absolute;
+         left: 150px;
+         top: 3.75px;
+         width: 1px;
+         }
+         .sizeButton {
+         width: 30px;
+         height: 15px;
+         padding: 0;
+         position: absolute;
+         left: 98px;
+         background-color: #3f3f3f;
+         color: white;
+         border: none;
+         border-radius: 100px;
+         animation: bubbleout 0.2s forwards;
+         user-select: none;
+         }
+         #plusButton {
+         position: absolute;
+         top: 3px;
+         }
+         #minusButton {
+         position: absolute;
+         bottom: 3px;
+         font-size: larger;
+         font-size: 12px;
+         }
+         #sizeLabel {
+         color: white;
+         font-family: Arial, Helvetica, sans-serif;
+         position: absolute;
+         left: 98px;
+         top: 10px;
+         user-select: none;
+         }
+         #colorSelect {
+         visibility: visible;
+         background-color: #2d2d2d;
+         height: 75px;
+         width: 250px;
+         border-radius: 20px;
+         z-index: 250;
+         position: absolute;
+         bottom: 10px;
+         left: 7px;
+         opacity: 1;
+         animation: opacityoff 0.8s forwards;
+         }
+         #cornerSelect {
+         visibility: hidden;
+         background-color: #2d2d2d;
+         height: 75px;
+         width: 250px;
+         border-radius: 20px;
+         z-index: 250;
+         position: absolute;
+         bottom: 10px;
+         left: 7px;
+         opacity: 1;
+         animation: opacityoff 0.8s forwards;
+         }
+         #cornerSelect:hover {
+         animation: opacityon 0.5s forwards;
+         }
+         .part3 {
+         background-color: #3f3f3f;
+         border: none;
+         color: white;
+         width: 50px;
+         border-radius: 300px;
+         position: absolute;
+         left: 162.5px;
+         animation: bubbleout 0.2s forwards
+         }
+         .part3:hover {
+         animation: bubble 0.3s forwards;
+         }
+         #clearButton {
+         bottom: 7px;
+         }
+         #eraseButton {
+         top: 7px;
+         }
+         .part3:focus {
+         outline: none;
+         }
+         #colorSelect:hover {
+         animation: opacityon 20000s forwards;
+         }
+         .sizeButton:hover {
+         animation: bubble 0.3s forwards;
+         }
+         .sizeButton:focus {
+         outline: none;
+         }
+         .colorToggle {
+         height: 28px;
+         width: 28px;
+         border-radius: 50px;
+         position: absolute;
+         animation: bubbleout 0.3s forwards;
+         opacity: 1;
+         }
+         .colorToggle:hover {
+         animation: bubble 0.2s forwards;
+         }
+         #redToggle {
+         background-color: #DB4437;
+         top: 5px;
+         left: 5px;
+         }
+         #greenToggle {
+         background-color: #F4B400;
+         left: 5px;
+         bottom: 5px;
+         }
+         #blueToggle {
+         background-color: #4285F4;
+         left: 40px;
+         bottom: 5px;
+         }
+         #yellowToggle {
+         background-color: #0F9D58;
+         left: 40px;
+         top: 5px;
+         }
+         #nextPage {
+         position: absolute;
+         left: 225px;
+         width: 25px;
+         border-radius: 20px;
+         height: 100%;
+         border: none;
+         color: white;
+         background-color: #3f3f3f;
+         }
+         #backPage {
+         position: absolute;
+         left: 0px;
+         width: 25px;
+         border-radius: 20px;
+         height: 100%;
+         border: none;
+         color: white;
+         background-color: #3f3f3f;
+         }
+         #backPage:focus {
+         outline: none;
+         }
+         button:hover {
+         cursor: pointer;
+         }
+         #nextPage:focus {
+         outline: none;
+         }
+         #cornerSlider {
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 30px;
+         }
+         #cornerBlock {
+         height: 25px;
+         width: 25px;
+         background-color: #DB4437;
+         position: absolute;
+         top: 25px;
+         bottom: 0;
+         left: 190px;
+         border-radius: 25px;
+         }
+         @keyframes opacityon {
+         from {
+         opacity: 1;
+         }
+         to {
+         opacity: 1;
+         }
+         }
+         @keyframes opacityoff {
+         from {
+         opacity: 1;
+         }
+         to {
+         opacity: 0.3;
+         }
+         }
+         @keyframes bubble {
+         from {
+         transform: scale(1.0);
+         }
+         to {
+         transform: scale(1.2);
+         }
+         }
+         @keyframes bubbleout {
+         from {
+         transform: scale(1.2);
+         }
+         to {
+         transform: scale(1.0);
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <h1 id="blockCount" onmouseover="switchText('toHide')" onclick="switchText('hide')" onmouseout="switchText('back')">Current amount of blocks: 0</h1>
+      <div id="colorSelect">
+         <div onclick="color('#DB4437')" class="colorToggle" id="redToggle"></div>
+         <div onclick="color('#F4B400')" class="colorToggle" id="greenToggle"></div>
+         <div onclick="color('#4285F4')" class="colorToggle" id="blueToggle"></div>
+         <div onclick="color('#0F9D58')" class="colorToggle" id="yellowToggle"></div>
+         <div id="vl1" class="vl"></div>
+         <button onclick="sizeChange('plus')" class="sizeButton" id="plusButton">^</button>
+         <p id="sizeLabel">5px</p>
+         <button onclick="sizeChange('minus')" class="sizeButton" id="minusButton">v</button>
+         <button onclick="switchPage('next')" id="nextPage">></button>
+         <button onclick="toggleErase()" id="eraseButton" class="part3">Erase</button>
+         <button onclick="refresh()" id="clearButton" class="part3">Clear</button>
+         <div id="vl2" class="vl"></div>
+      </div>
+      <div id="cornerSelect">
+         <button onclick="switchPage('back')" id="backPage">
+         <<button>
+         <input oninput="setRadius()" id="cornerSlider" type="range" min=0 max=1000>
+         <div id="cornerBlock"></div>
+      </div>
+      <script>
+         defaultColor = "#DB4437"
+         defaultSize = 5
+         defaultSizeLabel = "5px"
+         defaultRadius = 25
+         
+         function color(newColor) {
+             defaultColor = `${newColor}`
+             p(`Switched color to ${defaultColor}`)
+         }
+         
+         async function coords() {
+             x = event.clientX
+             y = event.clientY
+             spawn(x, y)
+         }
+         
+         hold = false
+         var blockID = 0
+         function spawn(xPos, yPos) {
+             if (hold == true) {
+         
+                 let newBlock = document.createElement('div');
+                 newBlock.style.width = `${defaultSize}px`
+                 newBlock.style.height = `${defaultSize}px`
+                 newBlock.style.borderRadius = `${defaultRadius}px`
+                 newBlock.style.zIndex = "0"
+                 newBlock.style.backgroundColor = defaultColor
+                 newBlock.style.position = "absolute"
+                 newBlock.style.top = `${y}px`
+                 newBlock.style.left = `${x}px`
+                 newBlock.id = `block${blockID}`
+                 document.body.appendChild(newBlock)
+                 blockID += 1
+                 switchText('back')
+             }
+         }
+         
+         function setHold(status) {
+             if (status == "on") {
+                 hold = true
+             }
+             else {
+                 hold = false
+         
+             }
+         }
+         
+         function p(text) {
+             console.log(text)
+         }
+         
+         function sizeChange(plusOrMinus) {
+             if (plusOrMinus == "plus") {
+                 currentSize = defaultSize
+                 if (event.shiftKey == true) {
+                     newSize = currentSize += 10
+                 }
+                 else {
+                     newSize = currentSize += 5
+                 }
+                 defaultSize = newSize
+                 if (defaultSize < 5) {
+                     defaultSize = 5
+                 }
+                 defaultSizeLabel = `${defaultSize}px`
+                 document.getElementById('sizeLabel').innerHTML = defaultSizeLabel
+             }
+             else {
+                 currentSize = defaultSize
+                 if (event.shiftKey == false) {
+                     newSize = currentSize -= 10
+                 }
+                 else {
+                     newSize = currentSize -= 5
+                 }
+                 defaultSize = newSize
+                 if (defaultSize < 5) {
+                     defaultSize = 5
+                 }
+                 defaultSizeLabel = `${defaultSize}px`
+                 document.getElementById('sizeLabel').innerHTML = defaultSizeLabel
+             }
+         }
+         eraseMode = false
+         function toggleErase() {
+             if (eraseMode == false) {
+                 button = document.getElementById('eraseButton')
+                 button.style.backgroundColor = "white"
+                 button.style.color = "black"
+                 eraseMode = true
+                 defaultColor = '#121212'
+             }
+             else {
+                 button = document.getElementById('eraseButton')
+                 button.style.backgroundColor = "#3f3f3f"
+                 button.style.color = "white"
+                 eraseMode = false
+                 defaultColor = "#DB4437"
+         
+             }
+         }
+         
+         function refresh() {
+             window.location.reload(true)
+         }
+         
+         
+         function switchPage(where) {
+             if (where == "next") {
+                 document.getElementById("colorSelect").style.visibility = "hidden"
+                 document.getElementById("cornerSelect").style.visibility = "visible"
+         
+             }
+             else if (where == "back") {
+                 document.getElementById("colorSelect").style.visibility = "visible"
+                 document.getElementById("cornerSelect").style.visibility = "hidden"
+         
+             }
+         }
+         
+         function setRadius() {
+             newValue = document.getElementById('cornerSlider').value
+             defaultRadius = newValue
+             update(newValue)
+         }
+         
+         function update(value) {
+             document.getElementById('cornerBlock').style.borderRadius = value
+         }
+         
+         function switchText(state){
+             if(state == "toHide"){
+                 document.getElementById('blockCount').innerHTML = "hide?"
+             }
+             else if(state == "back"){
+                 document.getElementById('blockCount').innerHTML = `Current amount of blocks: ${blockID}`
+         
+             }
+             else{
+                 document.getElementById('blockCount').style.visibility = 'hidden'
+         
+             }
+         }
+      </script>
+   </body>
+</html>

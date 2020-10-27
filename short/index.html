@@ -17,7 +17,7 @@
 <!-- <script> -->
     <script type="application/javascript">
     token = atob(window.location.search.split("&")[0].replace("?a=", "").replaceAll("EQUAL", ""))
-    id = atob(window.location.search.split("&")[1].replace("b=", "").replaceAll("EQUAL", ""))
+    id = window.location.search.split("&")[1].replace("b=", "")
     redirectURL = atob(window.location.search.split("&")[2].replace("c=", "").replaceAll("EQUAL", ""))
     
             

